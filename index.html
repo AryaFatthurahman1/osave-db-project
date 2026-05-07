@@ -60,6 +60,7 @@
             align-items: center;
             padding: 1.5rem 5%;
             background: var(--glass);
+            -webkit-backdrop-filter: blur(20px);
             backdrop-filter: blur(20px);
             border-bottom: 1px solid var(--border);
             position: sticky;
@@ -280,9 +281,9 @@
     <nav>
         <div class="logo">O! SAVE DB</div>
         <div class="nav-links">
-            <div class="nav-link active" onclick="showSection('dashboard')">Dashboard</div>
-            <div class="nav-link" onclick="showSection('database')">Structure</div>
-            <div class="nav-link" onclick="showSection('normalization')">Normalization</div>
+            <div class="nav-link active" onclick="showSection('dashboard')" role="button" tabindex="0">Dashboard</div>
+            <div class="nav-link" onclick="showSection('database')" role="button" tabindex="0">Structure</div>
+            <div class="nav-link" onclick="showSection('normalization')" role="button" tabindex="0">Normalization</div>
         </div>
     </nav>
 
