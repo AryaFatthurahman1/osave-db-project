@@ -297,6 +297,7 @@
 
             <div class="grid-dashboard">
                 <div class="receipt-card">
+                <div class="physical-receipt">
                     <div class="receipt-header">
                         <h2>O! save</h2>
                         <p>Jl. Komarudin Lama RT.7 RW.5<br>Kel. Pulo Gebang Kec. Cakung<br>NPWP: 20.786.546.0-427.000</p>
@@ -318,16 +319,16 @@
                         <span>Subtotal (Incl. PPN)</span>
                         <span>103.500</span>
                     </div>
-                    <div class="receipt-total" style="font-size: 0.8rem; margin-top: 5px;">
+                    <div class="receipt-total text-small mt-5">
                         <span>Jumlah Barang</span>
                         <span>9</span>
                     </div>
-                    <div class="receipt-total" style="color: #444; border-top: 1px solid #ccc; padding-top: 10px; margin-top: 15px;">
+                    <div class="receipt-total text-dim border-top pt-10 mt-15">
                         <span>Cash</span>
                         <span>103.500</span>
                     </div>
                     <div class="receipt-divider"></div>
-                    <div style="font-size: 0.65rem; text-align: center; color: #555;">
+                    <div class="receipt-footer">
                         020, 1, 2004, 290185, 01/05/2026 14:27<br>
                         Buka 7:00 to 22:00<br>
                         TERIMA KASIH
@@ -336,21 +337,21 @@
 
                 <div class="documentation-card">
                     <div class="doc-title">Quick Data Summary</div>
-                    <p style="color: var(--text-dim); margin-bottom: 2rem;">Parsed entities from the physical receipt.</p>
+                    <p class="mb-8 text-dim">Parsed entities from the physical receipt.</p>
                     
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
-                        <div style="background: var(--glass); padding: 1.5rem; border-radius: 15px; border: 1px solid var(--border);">
-                            <div style="color: var(--primary); font-weight: 800; font-size: 2rem;">9</div>
-                            <div style="font-size: 0.8rem; color: var(--text-dim);">Items Sold</div>
+                    <div class="grid-2-col gap-4">
+                        <div class="summary-box">
+                            <div class="stat-value">9</div>
+                            <div class="stat-label">Items Sold</div>
                         </div>
-                        <div style="background: var(--glass); padding: 1.5rem; border-radius: 15px; border: 1px solid var(--border);">
-                            <div style="color: var(--primary); font-weight: 800; font-size: 2rem;">1</div>
-                            <div style="font-size: 0.8rem; color: var(--text-dim);">Transaction</div>
+                        <div class="summary-box">
+                            <div class="stat-value">1</div>
+                            <div class="stat-label">Transaction</div>
                         </div>
                     </div>
 
-                    <div style="margin-top: 2rem;">
-                        <h4 style="margin-bottom: 10px;">SQL Export Ready</h4>
+                    <div class="mt-8">
+                        <h4 class="mb-2">SQL Export Ready</h4>
                         <div class="code-block">
 SELECT * FROM transaksi WHERE id_transaksi = '290185';
 -- Result: 1 row found. Status: Success.
@@ -370,7 +371,7 @@ SELECT * FROM transaksi WHERE id_transaksi = '290185';
             <div class="erd-box">
                 <div class="doc-title">Entity Relationship Summary</div>
                 
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
+                <div class="grid-auto-fit gap-4">
                     <div class="erd-entity">
                         <h4>Toko</h4>
                         <ul>
@@ -409,7 +410,7 @@ SELECT * FROM transaksi WHERE id_transaksi = '290185';
                     </div>
                 </div>
 
-                <div class="code-block" style="color: #60a5fa;">
+                <div class="code-block blue-text mt-4">
 -- Cardinality Summary
 -- Toko (1) : (N) Transaksi
 -- Kasir (1) : (N) Transaksi
@@ -427,8 +428,8 @@ SELECT * FROM transaksi WHERE id_transaksi = '290185';
             </div>
 
             <div class="documentation-card">
-                <h3 style="margin-bottom: 1rem; color: var(--primary);">1NF: First Normal Form</h3>
-                <p style="color: var(--text-dim); margin-bottom: 1rem;">Splitting multi-valued attributes into atomic rows.</p>
+                <h3 class="mb-4 text-primary">1NF: First Normal Form</h3>
+                <p class="text-dim mb-4">Splitting multi-valued attributes into atomic rows.</p>
                 <div class="table-container">
                     <table>
                         <thead>
@@ -443,18 +444,18 @@ SELECT * FROM transaksi WHERE id_transaksi = '290185';
                     </table>
                 </div>
 
-                <h3 style="margin-bottom: 1rem; color: var(--primary);">2NF: Second Normal Form</h3>
-                <p style="color: var(--text-dim); margin-bottom: 1rem;">Removing partial dependencies (Items to Product Table).</p>
-                <div style="display: flex; gap: 2rem; flex-wrap: wrap;">
-                    <div style="flex: 1; min-width: 300px;">
-                        <h4 style="font-size: 0.8rem; margin-bottom: 5px;">Table: Barang</h4>
+                <h3 class="mb-4 text-primary">2NF: Second Normal Form</h3>
+                <p class="text-dim mb-4">Removing partial dependencies (Items to Product Table).</p>
+                <div class="flex-wrap-gap-8">
+                    <div class="flex-1 min-w-300">
+                        <h4 class="text-xs mb-1">Table: Barang</h4>
                         <table>
                             <thead><tr><th>ID_Barang</th><th>Nama</th></tr></thead>
                             <tbody><tr><td>B001</td><td>Ayoma Rolade</td></tr></tbody>
                         </table>
                     </div>
-                    <div style="flex: 1; min-width: 300px;">
-                        <h4 style="font-size: 0.8rem; margin-bottom: 5px;">Table: TransDetail</h4>
+                    <div class="flex-1 min-w-300">
+                        <h4 class="text-xs mb-1">Table: TransDetail</h4>
                         <table>
                             <thead><tr><th>TransID</th><th>ProdID</th><th>Qty</th></tr></thead>
                             <tbody><tr><td>290185</td><td>B001</td><td>1</td></tr></tbody>
@@ -462,8 +463,13 @@ SELECT * FROM transaksi WHERE id_transaksi = '290185';
                     </div>
                 </div>
 
-                <h3 style="margin-top: 2rem; margin-bottom: 1rem; color: var(--primary);">3NF: Third Normal Form</h3>
-                <p style="color: var(--text-dim); margin-bottom: 1rem;">Removing transitive dependencies (Separating Cashier & Store info).</p>
+                <h3 class="mt-8 mb-4 text-primary">3NF: Third Normal Form</h3>
+                <p class="text-dim mb-4">Removing transitive dependencies (Separating Cashier & Store info).</p>
+                <div class="erd-entity dashed-border low-opacity">
+                    <p>Current State: Fully Optimized. No non-key attribute depends on another non-key attribute.</p>
+                </div>
+            </div>
+        </section>
                 <div class=" erd-entity" style="border-style: dashed; opacity: 0.8;">
                     <p>Current State: Fully Optimized. No non-key attribute depends on another non-key attribute.</p>
                 </div>
